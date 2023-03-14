@@ -65,3 +65,49 @@ a:not([class]) {
 .selection-modal, .success-modal { /*temp*/
   display: none;
 }
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-size: 16px;
+  background-color: hsla(0, 0%, 48%, 0.05);
+}
+header {
+  height: 35vh; /* needs adjustment */
+  background-image: url(./images/image-hero-desktop.jpg); /* needs resizing */
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header > img {
+  height: 1rem;
+  width: auto;
+}
+
+nav {
+  display: flex;
+  gap: 1em;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.content-wrapper { /* wrapper for content sections, needs to relative to main  */
+  width: 50%;
+  position: absolute;
+  left: 50%; 
+  transform: translate(-50%, 0); /* need a y adjustment */
+  padding: 1em;
+  background-color: white;
+}
+
+.attribution { /* how move this down, right now hidden by content wrapper*/
+
+}
