@@ -288,6 +288,9 @@ button.active:hover, button.active:focus {
 button.bookmark {
   cursor: pointer;
 }
+button.bookmark:hover img {
+  opacity: 0.6;
+}
 
 .attribution { /* how move this down, right now hidden by content wrapper*/
   
