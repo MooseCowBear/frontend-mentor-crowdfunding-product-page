@@ -31,14 +31,23 @@
         <img class="m-icon" src="./images/logo-mastercraft.svg" alt="mastercraft icon">
         <h1>Mastercraft Bamboo Monitor Riser</h1>
         <p class="details">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
-
-        <button id="back-project" class="active">Back this project</button>
-        <button class="bookmark">Bookmark</button>
+        <div class="button-wrapper">
+          <button id="back-project" class="active">Back this project</button>
+          <button class="bookmark">
+            <img src="./images/icon-bookmark.svg" alt="bookmark icon">
+            Bookmark
+          </button>
+        </div>
       </section>
-      <div class="progress">
-        <p class="progress-info"><span>$89,914 </span>of $100,000 backed</p>
-        <p class="progress-info"><span>5,007 </span>total backers</p>
-        <p class="progress-info"><span>56 </span>days left</p>
+      <div class="progress-wrapper">
+        <div class="progress">
+          <p class="progress-info"><span>$89,914 </span>of $100,000 backed</p>
+          <p class="progress-info"><span>5,007 </span>total backers</p>
+          <p class="progress-info"><span>56 </span>days left</p>
+        </div>
+        <div class="progress-bar">
+          <span></span>
+        </div>
       </div>
       <section class="about">
         <h2>About this project</h2>
@@ -80,7 +89,7 @@
             <button class="active">Select Reward</button>
           </div>
         </section>
-        <section class="product">
+        <section class="product inactive">
           <div class="product-heading">
             <h3>Mahogany Special Edition</h3>
             <p>Pledge $200 or more</p>
@@ -96,6 +105,8 @@
           </div>
         </section>
       </section>
+
+      <!-- could put attribution here as another div like the progress div -->
     </div>
       <!-- Selection modal start -->
     <div class="selection-modal">
