@@ -278,6 +278,17 @@ p {
 .product.inactive {
   opacity: 0.5;
 }
+
+/* active states */
+button.active:hover, button.active:focus {
+  background-color: var(--highlight-dark);
+  cursor: pointer;
+}
+
+button.bookmark {
+  cursor: pointer;
+}
+
 .attribution { /* how move this down, right now hidden by content wrapper*/
   
 
