@@ -103,9 +103,27 @@ main {
   width: 50%;
   position: absolute;
   left: 50%; 
-  transform: translate(-50%, 0); /* need a y adjustment */
+  top: 5%;
+  transform: translate(-50%, -5%); /* need a y adjustment */
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+section, .progress {
   background-color: white;
+  padding: 2em 1em;
+}
+
+.summary {
+  position: relative;
+}
+.summary > img {
+  position: absolute;
+  left: 50%;
+  top: -25%;
+  transform: translate(-50%, 25%);
 }
 
 .attribution { /* how move this down, right now hidden by content wrapper*/
