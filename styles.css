@@ -288,7 +288,7 @@ button.active:hover, button.active:focus {
 button.bookmark {
   cursor: pointer;
 }
-button.bookmark:hover img {
+button.bookmark:hover img, button.bookmark:focus img {
   opacity: 0.6;
 }
 
