@@ -74,6 +74,7 @@ body {
   background-color: var(--background-light);
   color: var(--text-dark);
 }
+
 header {
   height: 50vh; /* needs adjustment */
   background-image: url(./images/image-hero-desktop.jpg); /* needs resizing */
@@ -295,9 +296,44 @@ button.bookmark:hover img, button.bookmark:focus img {
 
 /* the selection modal */
 .selection-modal {
-  
+  display: block; /* becomes block */
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4);
 }
-
+.selection-modal-content {
+  background-color: white;
+  margin: 15% auto; 
+  padding: 2em;
+  width: 60%; 
+}
+.selection-modal-content > img {
+  float: right;
+}
+.selection-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.selection-modal-content h2 {
+  margin-bottom: -1em;
+}
+.selection-modal-content section, .selection-modal-content div.product {
+  padding: 2em;
+}
+.selection-heading, .selection-heading-left {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.selection-heading {
+  justify-content: space-between;
+}
 /* the thank you modal */
 .success-modal {
   display: none; /* becomes block */
