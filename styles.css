@@ -56,6 +56,9 @@ a:not([class]) {
   *,
   *::before,
   *::after {
+    margin: 0; /*trying this */
+    padding: 0;
+
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -64,34 +67,34 @@ a:not([class]) {
 }
 /* end reset */
 
-.selection-modal{ /*temp*/
-  display: none;
-}
-
 body {
   font-family: "Commissioner", sans-serif;
   font-size: 16px;
   background-color: var(--background-light);
-  color: var(--text-dark);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
 }
 
 header {
-  height: 50vh; /* needs adjustment */
-  background-image: url(./images/image-hero-desktop.jpg); /* needs resizing */
-  background-repeat: no-repeat;
-  padding: 2rem 5rem;
-  display: flex;
-  justify-content: space-between;
+  position: relative;
 }
 
-header > img {
-  height: 1rem;
-  width: auto;
+.header-links-logo {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2em 4em;
 }
 
 nav {
   display: flex;
-  gap: 1em;
+  gap: 2em;
 }
 
 header a {
@@ -101,7 +104,67 @@ header a {
 
 main {
   position: relative;
-  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.content-wrapper { 
+  width: 60%;
+  position: absolute;
+  left: 50%; 
+  top: 5%;
+  transform: translate(-50%, -5%); 
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.section-wrapper {
+  background-color: white;
+  padding: 2em;
+  border-radius: 0.5em;
+}
+
+.padding {
+  padding: 2em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+h1, h2, h3 {
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: 1.6em;
+}
+h2 {
+  font-size: 1.3em;
+}
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  line-height: 2;
+}
+
+.m-icon {
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  transform: translate(-50%, 15%);
+}
+
+.section-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
 }
 
 .button-wrapper {
@@ -112,10 +175,11 @@ main {
   margin-top: 1em;
 }
 
-/* buttons */
+
 button {
   font-size: 1em;
 }
+
 button.active, button.inactive {
   border: transparent;
   color: white;
@@ -129,7 +193,7 @@ button.active {
   background-color: var(--highlight);
 }
 
-button.inactive { /* grayed outness will come from the section */
+button.inactive { 
   background-color: var(--text-light);
 }
 
@@ -153,134 +217,6 @@ button.bookmark > img {
   top: 0;
 }
 
-.content-wrapper { /* wrapper for content sections, needs to relative to main  */
-  width: 60%;
-  position: absolute;
-  left: 50%; 
-  top: 5%;
-  transform: translate(-50%, -5%); 
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-section, .progress-wrapper {
-  background-color: white;
-  padding: 2em 1em;
-  border-radius: 0.5em;
-  padding: 2em;
-}
-
-.summary {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-}
-
-.summary > img {
-  position: absolute;
-  left: 50%;
-  top: -15%;
-  transform: translate(-50%, 15%);
-}
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1.3em;
-}
-h3 {
-  font-size: 1.2em;
-}
-p {
-  color: var(--text-light);
-}
-.progress-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.progress {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.progress-bar {
-  width: 100%;
-  height: 1em;
-  background-color: var(--background-light);
-  border-radius: 1em;
-}
-.progress-bar > span {
-  background-color: var(--highlight);
-  width: 80%; /* a guess, need to calc and add with js */
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-}
-.progress > p.progress-info:not(:last-child) {
-  border-right: 2px solid var(--background-light);
-}
-.progress-info {
-  font-size: 0.9em;
-  font-weight: 500;
-  width: 33%;
-  padding: 0 3em;
-}
-.progress-info > span {
-  font-weight: 700;
-  font-size: 2.5em;
-  display: block;
-  color: var(--text-dark);
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.product:not(.details) {
-  border: 2px solid var(--background-light);
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.product-heading {
-  display: flex;
-  justify-content: space-between;
-}
-
-.product-heading > p {
-  color: var(--highlight);
-  font-weight: 500;
-}
-
-.product-action {
-  display: flex;
-  justify-content: space-between;
-}
-.product-remaining {
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-}
-.product-remaining > .number {
-  font-size: 2.5em;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-.product.inactive {
-  opacity: 0.5;
-}
-
-/* active states */
 button.active:hover, button.active:focus {
   background-color: var(--highlight-dark);
   cursor: pointer;
@@ -294,9 +230,97 @@ button.bookmark:hover img, button.bookmark:focus img {
   opacity: 0.6;
 }
 
-/* the selection modal */
+.progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.progress {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1em;
+  background-color: var(--background-light);
+  border-radius: 1em;
+}
+
+.progress-bar > span {
+  background-color: var(--highlight);
+  width: 80%;
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.progress > p.progress-info:not(:last-child) {
+  border-right: 2px solid var(--background-light);
+}
+
+.progress-info {
+  font-size: 0.9em;
+  font-weight: 500;
+  width: 33%;
+  padding: 0 3em;
+}
+
+.progress-info > span {
+  font-weight: 700;
+  font-size: 2.5em;
+  display: block;
+  color: var(--text-dark);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 1.5em;
+}
+
+.product {
+  border: 2px solid var(--background-light);
+  border-radius: inherit;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pledge-amount { /* gets bolded in modal when hovering over h3 */
+  color: var(--highlight);
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.number {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.product.inactive {
+  opacity: 0.5;
+}
+/* selection modal */
 .selection-modal {
-  display: block; /* becomes block */
+  display: block;  /* default is none, on is block */
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -306,77 +330,59 @@ button.bookmark:hover img, button.bookmark:focus img {
   overflow: auto; 
   background-color: rgba(0,0,0,0.4);
 }
+
+.selection-modal-content .product-header {
+  margin-bottom: -1em; /* make up for the extra space of the span */
+}
 .selection-modal-content {
   background-color: white;
   margin: 15% auto; 
   padding: 2em;
   width: 60%; 
 }
-.selection-modal-content > img {
-  float: right;
-}
-.selection-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-.selection-modal-content h2 {
-  margin-bottom: -1em;
-}
-.selection-modal-content label {
-  font-weight: 700;
-}
-.product-modal {
-  border: 2px solid var(--background-light);
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  border-radius: 0.5em;
-}
 
-.enter-pledge{
-  padding: 2em;
-}
-p.details {
-  padding-right: 2em;
-  padding-left: 4em;
-}
-.selection-modal-content div.product {
-  padding: 2em;
-}
-.selection-heading, .selection-heading-left {
-  display: flex;
-  align-items: center;
+.selection-modal-content .about {
   gap: 1em;
-}
-.selection-heading {
-  justify-content: space-between;
-  align-items: center;
-  padding: 2em;
-}
-.selection-heading-left > p {
-  color: var(--highlight);
-  font-weight: 500;
+  margin-bottom: 1em;
+  width: 100%;
 }
 
-.right {
+.selection-modal-content .section-wrapper > img {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+}
+
+.selection-modal-content .section-wrapper {
+  padding: 1em;
+  position: relative;
+}
+
+.header-left {
   display: flex;
   align-items: center;
   gap: 0.5em;
 }
 
-.right > .number {
-  font-size: 1.6em;
-  color: var(--text-dark);
+.selection-modal-content label {
   font-weight: 700;
+  color: var(--text-dark);
 }
 
-.selected-pledge { /* will be hidden unless selected */
+.selection-modal-content label:not(.inactive):hover, .selection-modal-content label:not(.inactive):focus {
+  color: var(--highlight);
+  cursor: pointer;
+}
+.selection-modal-content label:not(.inactive):hover ~ .pledge-amount, .selection-modal-content label:not(.inactive):focus ~ .pledge-amount {
+  font-weight: 500;
+}
+
+.product-footer.pledge { 
   border-top: 2px solid var(--background-light);
-  display: flex;
+  display: none; /* when turned on, goes to flex */
   justify-content: space-between;
   align-items: center;
-  
+  padding: 1em 0;
 }
 
 .amount-wrapper {
@@ -386,8 +392,12 @@ p.details {
   padding-right: 2em;
 }
 
+.selection-modal-content .details, .enter-pledge {
+  padding-left: 2em;
+}
+
 input[type=text] {
-  border: 1px solid var(--highlight-dark);
+  border: 1px solid var(--background-light);
   text-align: center;
   outline: none;
   padding: 1em;
@@ -398,11 +408,27 @@ input[type=text] {
   font-size: 1em;
 }
 
-.amount-inner-wrapper {
-  display: flex;
+input[type=text]:hover, input[type=text]:focus-within {
+  border: 1px solid var(--highlight);
+  cursor: pointer;
 }
 
-/* the radio button */
+.inner-amount-wrapper {
+  position: relative;
+}
+
+label.dollar-sign {
+  position: absolute;
+  bottom: 50%;
+  left: 20%;
+  transform: translate(-20%, 50%);
+  color: var(--text-light);
+}
+
+/* NOTE: need to change border of selected section to hightlight, add "selected" class with js */
+.selection-modal-content .product.selected {
+  border: 2px solid var(--highlight);
+}
 
 .check {
 
