@@ -323,7 +323,7 @@ button.bookmark:hover img, button.bookmark:focus img {
 }
 /* selection modal */
 .selection-modal {
-  display: none;  /* default is none, on is block */
+  display: block;  /* default is none, on is block */
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -337,6 +337,7 @@ button.bookmark:hover img, button.bookmark:focus img {
 .selection-modal-content .product-header {
   margin-bottom: -1em; /* make up for the extra space of the span */
 }
+
 .selection-modal-content {
   background-color: white;
   margin: 15% auto; 
@@ -506,14 +507,6 @@ label.dollar-sign {
 	background: var(--highlight);
 }
 
-
-
-
-
-
-
-
-
 /* the thank you modal */
 .success-modal {
   display: none; /* becomes block */
@@ -552,7 +545,7 @@ label.dollar-sign {
 
 @media only screen and (max-width: 620px){
   .content-wrapper { 
-    width: 90%;
+    width: 96%;
 
     /*position: absolute;
     left: 50%; 
@@ -590,4 +583,29 @@ label.dollar-sign {
     height: 2px; 
   }
 
+  .product-header {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .selection-modal-content {
+    width: 90%; 
+  }
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .success-modal-content {
+    margin: 50% auto; 
+    width: 90%; 
+  }
 }
