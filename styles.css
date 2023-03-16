@@ -323,7 +323,25 @@ button.bookmark:hover img, button.bookmark:focus img {
 .selection-modal-content h2 {
   margin-bottom: -1em;
 }
-.selection-modal-content section, .selection-modal-content div.product {
+.selection-modal-content label {
+  font-weight: 700;
+}
+.product-modal {
+  border: 2px solid var(--background-light);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border-radius: 0.5em;
+}
+
+.enter-pledge{
+  padding: 2em;
+}
+p.details {
+  padding-right: 2em;
+  padding-left: 4em;
+}
+.selection-modal-content div.product {
   padding: 2em;
 }
 .selection-heading, .selection-heading-left {
@@ -333,7 +351,66 @@ button.bookmark:hover img, button.bookmark:focus img {
 }
 .selection-heading {
   justify-content: space-between;
+  align-items: center;
+  padding: 2em;
 }
+.selection-heading-left > p {
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.right > .number {
+  font-size: 1.6em;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.selected-pledge { /* will be hidden unless selected */
+  border-top: 2px solid var(--background-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.amount-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding-right: 2em;
+}
+
+input[type=text] {
+  border: 1px solid var(--highlight-dark);
+  text-align: center;
+  outline: none;
+  padding: 1em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 2.5em;
+  max-width: 6rem;
+  font-size: 1em;
+}
+
+.amount-inner-wrapper {
+  display: flex;
+}
+
+/* the radio button */
+
+.check {
+
+}
+input[type=radio] {
+}
+
+
 /* the thank you modal */
 .success-modal {
   display: none; /* becomes block */
