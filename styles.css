@@ -118,6 +118,9 @@ main {
   flex-direction: column;
   gap: 1em;
 }
+.h1-wrapper {
+  text-align: center;
+}
 
 .section-wrapper {
   background-color: white;
@@ -320,7 +323,7 @@ button.bookmark:hover img, button.bookmark:focus img {
 }
 /* selection modal */
 .selection-modal {
-  display: block;  /* default is none, on is block */
+  display: none;  /* default is none, on is block */
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -379,8 +382,6 @@ button.bookmark:hover img, button.bookmark:focus img {
   font-weight: 500;
 }
 
-
-
 .product-footer.pledge { 
   border-top: 2px solid var(--background-light);
   display: none; /* when turned on, goes to flex */
@@ -432,10 +433,6 @@ label.dollar-sign {
 /* NOTE: need to change border of selected section to hightlight, add "selected" class with js */
 .selection-modal-content .product.selected {
   border: 2px solid var(--highlight);
-}
-
-.header-left {
-
 }
 
 .selection-modal-content label:not(.inactive):hover ~ .check, 
@@ -550,5 +547,47 @@ label.dollar-sign {
 
 .attribution { /* how move this down, right now hidden by content wrapper*/
   
+
+}
+
+@media only screen and (max-width: 620px){
+  .content-wrapper { 
+    width: 90%;
+
+    /*position: absolute;
+    left: 50%; 
+    top: 5%;
+    transform: translate(-50%, -5%); 
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;*/
+  }
+  .progress {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  .progress-info {
+    width: 100%;
+  }
+  .progress-info > span {
+    margin-bottom: -0.3em;
+  }
+  .progress > p.progress-info:not(:last-child) {
+    border-right: none;
+    margin-bottom: 1em;
+  }
+
+  /* the line under each number */
+  .progress > p.progress-info + p.progress-info::before {
+    content: "";
+    background: var(--background-light);
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    height: 2px; 
+  }
 
 }
