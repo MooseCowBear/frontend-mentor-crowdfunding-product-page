@@ -361,7 +361,7 @@ button.bookmark:hover img, button.bookmark:focus img {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .selection-modal-content label {
@@ -369,13 +369,17 @@ button.bookmark:hover img, button.bookmark:focus img {
   color: var(--text-dark);
 }
 
-.selection-modal-content label:not(.inactive):hover, .selection-modal-content label:not(.inactive):focus {
+.selection-modal-content label:not(.inactive):hover, 
+.selection-modal-content label:not(.inactive):focus {
   color: var(--highlight);
   cursor: pointer;
 }
+
 .selection-modal-content label:not(.inactive):hover ~ .pledge-amount, .selection-modal-content label:not(.inactive):focus ~ .pledge-amount {
   font-weight: 500;
 }
+
+
 
 .product-footer.pledge { 
   border-top: 2px solid var(--background-light);
@@ -430,11 +434,87 @@ label.dollar-sign {
   border: 2px solid var(--highlight);
 }
 
-.check {
+.header-left {
 
 }
-input[type=radio] {
+
+.selection-modal-content label:not(.inactive):hover ~ .check, 
+.selection-modal-content label:not(.inactive):focus ~ .check {
+  border: 2px solid var(--highlight); /* why does this still work for inactive ?? */
 }
+
+/* FROM W3 The container */
+.header-left label {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+
+  position: relative;
+
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.header-left label:not(.inactive) {
+  cursor: pointer;
+}
+
+/* Hide the browser's default radio button */
+.header-left label input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.check {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  border: 2px solid var(--background-light);
+  position: absolute;
+  top: 0;
+  left: -45px; /* has to be fixed because labels are different sizes */
+}
+
+
+/* On mouse-over, add a grey background color */
+.header-left label:not(.inactive):hover input ~ .check {
+  border: 2px solid var(--highlight);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.header-left label input:checked ~ .check:after {
+  display: block;
+}
+
+/* circle inside the radio button */
+.header-left label .check:after {
+ 	top: 50%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+	width: 0.7em;
+	height: 0.7em;
+	border-radius: 50%;
+	background: var(--highlight);
+}
+
+
+
+
+
+
+
 
 
 /* the thank you modal */
