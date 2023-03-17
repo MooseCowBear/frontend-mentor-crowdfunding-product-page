@@ -10,12 +10,6 @@
   <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
   <title>Frontend Mentor | Crowdfunding product page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
@@ -148,13 +142,15 @@
         </section>
 
       </section> <!-- end section wrapper-->
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">MooseCowBear</a>.
+      </div>
     </div> <!--end content - wrapper -->
 
     <!-- Selection modal start -->
     <div class="selection-modal">
       <section class="selection-modal-content">
-
-        
         <div class="section-wrapper">
           <img id="close-selection-modal" src="./images/icon-close-modal.svg" alt="close">
           <div class="about">
@@ -165,18 +161,13 @@
           <div class="product">
             <div class="padding">
               <div class="header-left">
-   
                 <label for="no-reward">Pledge with no reward
                   <input id="no-reward" name="selection" type="radio" value="no-reward">
                   <span class="check no-reward"></span>
                 </label>
-                
               </div>
-
               <p class="details">Choose to support us without a reward if you simply believe in our project. As a backer, 
               you will be signed up to receive product updates via email.</p>
-
-              <!-- needs a footer !!! -->
             </div>
             <div id="no-reward-footer" class="product-footer pledge">
               <p class="enter-pledge">Enter your pledge</p>
@@ -285,9 +276,5 @@
     </div>
     <!-- Success modal end -->
   </main>
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">MooseCowBear</a>.
-  </footer>
 </body>
 </html>

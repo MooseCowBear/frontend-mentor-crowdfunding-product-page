@@ -565,11 +565,6 @@ label.dollar-sign {
   line-height: 2;
 }
 
-.attribution { /* how move this down, right now hidden by content wrapper*/
-  
-
-}
-
 .mobile-menu-icons, .mobile-menu-modal{
   display: none;
 }
@@ -668,7 +663,7 @@ label.dollar-sign {
     align-items: flex-start;
     gap: 1em;
   }
-  
+
   .selection-modal-content .padding {
     grid-template-columns: 1fr;
   }
@@ -820,4 +815,12 @@ label.dollar-sign {
     padding: 1.5em 1em;
     border-radius: 2.2em;
   }
+}
+
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+}
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
 }
