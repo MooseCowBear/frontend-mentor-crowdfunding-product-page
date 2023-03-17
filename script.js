@@ -90,7 +90,15 @@ black.addEventListener("click", () => {
 });
 
 //event listeners for radio buttons
-
+for (let i = 0; i < radioButtons.length; i++){
+  if (!radioButtons[i].disabled){
+    radioButtons[i].addEventListener("click", () => {
+      deselectItems();
+      console.log("selected", radioButtons[i].value);
+      selectItem(radioButtons[i].value);
+    });
+  }
+}
 //need to add event listener only if disabled = false
 
 //need to remove selection from any previously selected element. add to clicked one
@@ -98,14 +106,16 @@ black.addEventListener("click", () => {
 function selectItem(value) {
   const productDiv = document.getElementById(`${value}`);
   productDiv.classList.add("selected");
-  const productFooter = document.getElementById(`${value}-footer`);
-  productFooter.style.display = "flex";
+  if (value !== "no-reward"){
+    const productFooter = document.getElementById(`${value}-footer`);
+    productFooter.style.display = "flex";
+  }
 }
 function deselectItems() {
   for (let i = 0; i < radioButtons.length; i++){
     if (!radioButtons[i].disabled)  {
       radioButtons[i].checked = false;
-      if (radioButtons[i].id != "no-reward"){
+      if (radioButtons[i].id !== "no-reward"){
         const productDiv = document.getElementById(`${radioButtons[i].value}`);
         productDiv.classList.remove("selected");
         const productFooter = document.getElementById(`${radioButtons[i].value}-footer`);
