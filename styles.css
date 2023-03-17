@@ -418,9 +418,7 @@ button.bookmark:hover img, button.bookmark:focus img {
 .product-footer.pledge { 
   grid-column: 1/3;
   border-top: 2px solid var(--background-light);
-
   display: none; /* when turned on, goes to flex */
-
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;

@@ -64,3 +64,31 @@ window.addEventListener("click", (event) => {
     mobileMenu.style.display = "none";
   }
 });
+
+//select reward buttons, open modal and have the right item selected
+const bamboo = document.getElementById("bamboo-select");
+const black = document.getElementById("black-select");
+
+bamboo.addEventListener("click", () => {
+  //need product div for item to add selected
+  const bambooPledgeDiv = document.getElementById("bamboo");
+  bambooPledgeDiv.classList.add("selected");
+  //need to check the radio button for it
+  const bambooRadio = document.querySelector("#bamboo input[type=radio]");
+  bambooRadio.checked = true;
+  //open the selection modal
+  selectionModal.style.display = "block";
+  //make the footer visible
+  const pledgeAmount = document.getElementById("bamboo-footer");
+  pledgeAmount.style.display = "flex";
+});
+
+black.addEventListener("click", () => {
+  const blackPledgeDiv = document.getElementById("black");
+  blackPledgeDiv.classList.add("selected");
+  const blackRadio = document.querySelector("#black input[type=radio]");
+  blackRadio.checked = true;
+  selectionModal.style.display = "block";
+  const pledgeAmount = document.getElementById("black-footer");
+  pledgeAmount.style.display = "flex";
+});
