@@ -23,6 +23,7 @@
       <source media="(max-width: 620px)" srcset="./images/image-hero-mobile.jpg"> <!-- might change -->
       <img src="./images/image-hero-desktop.jpg" alt="desk with computer">
     </picture>
+
     <div class="header-links-logo">
       <img class="logo" src="./images/logo.svg" alt="crowdfund logo">
       <nav>
@@ -31,6 +32,8 @@
         <a href="#">Get Started</a>
       </nav>
     </div>
+
+    <!-- add mobile menu! -->
   </header>
 
   <main>
@@ -46,7 +49,13 @@
           <button id="back-project" class="active">Back this project</button>
 
           <button class="bookmark">
-            <img src="./images/icon-bookmark.svg" alt="bookmark icon">
+            <!-- <img src="./images/icon-bookmark.svg" alt="bookmark icon"> -->
+            <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <circle class="bookmark-circle" fill="#2F2F2F" cx="28" cy="28" r="28"/>
+                <path class="bookmark-cutout" fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/>
+              </g>
+            </svg>
             <span>Bookmark</span>
           </button>
 
