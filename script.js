@@ -104,13 +104,14 @@ for (let i = 0; i < radioButtons.length; i++){
 
 const submitBamboo = document.getElementById("continue-bamboo");
 const submitBlack = document.getElementById("continue-black");
+const submitNoReward = document.getElementById("continue-no-reward");
 
 const successModal = document.querySelector(".success-modal");
 
 submitBamboo.addEventListener("click", () => {
   const pledge = document.getElementById("bamboo-pledge");
   const pledgeAmt = parseFloat(pledge.value);
-  if (pledgeAmt >= 25){
+  if (!isNaN(pledgeAmt) && pledgeAmt >= 25){
     //wipe and close selection modal
     pledge.value = "25";
     deselectItems();
@@ -133,7 +134,7 @@ submitBamboo.addEventListener("click", () => {
 submitBlack.addEventListener("click", () => {
   const pledge = document.getElementById("black-pledge");
   const pledgeAmt = parseFloat(pledge.value);
-  if (pledgeAmt >= 75){
+  if (!isNaN(pledgeAmt) && pledgeAmt >= 75){
     pledge.value = "75";
     deselectItems();
     selectionModal.style.display = "none";
@@ -151,6 +152,18 @@ submitBlack.addEventListener("click", () => {
   }
 });
 
+submitNoReward.addEventListener("click", () => {
+  const pledge = document.getElementById("no-reward-pledge");
+  const pledgeAmt = parseFloat(pledge.value);
+  if (!isNaN(pledgeAmt) && pledgeAmt > 0){
+    pledge.value = "0";
+    deselectItems();
+    selectionModal.style.display = "none";
+    successModal.style.display = "block";
+    updateProgress(pledgeAmt);
+  }
+});
+
 const closeSuccessModal = document.getElementById("close-success-modal");
 closeSuccessModal.addEventListener("click", () => {
   successModal.style.display = "none";
@@ -159,21 +172,19 @@ closeSuccessModal.addEventListener("click", () => {
 function selectItem(value) {
   const productDiv = document.getElementById(`${value}`);
   productDiv.classList.add("selected");
-  if (value !== "no-reward"){
-    const productFooter = document.getElementById(`${value}-footer`);
-    productFooter.style.display = "flex";
-  }
+  
+  const productFooter = document.getElementById(`${value}-footer`);
+  productFooter.style.display = "flex";
+  
 }
 function deselectItems() {
   for (let i = 0; i < radioButtons.length; i++){
     if (!radioButtons[i].disabled)  {
       radioButtons[i].checked = false;
-      if (radioButtons[i].id !== "no-reward"){
-        const productDiv = document.getElementById(`${radioButtons[i].value}`);
-        productDiv.classList.remove("selected");
-        const productFooter = document.getElementById(`${radioButtons[i].value}-footer`);
-        productFooter.style.display = "none";
-      }
+      const productDiv = document.getElementById(`${radioButtons[i].value}`);
+      productDiv.classList.remove("selected");
+      const productFooter = document.getElementById(`${radioButtons[i].value}-footer`);
+      productFooter.style.display = "none";
     }
   }
 }
