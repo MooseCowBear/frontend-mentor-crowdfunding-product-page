@@ -198,7 +198,7 @@ button {
 button.active, button.inactive {
   border: transparent;
   color: white;
-  padding: 1em 2em;
+  padding: 1.2em 2em;
   font-weight: 700;
   letter-spacing: 1px;
   border-radius: 1.8em;
@@ -219,7 +219,7 @@ button.bookmark {
   background-color: var(--background-light);
   gap: 1em;
   position: relative;
-  padding: 1em 2em 1em 4em;
+  padding: 1.2em 2em 1.2em 4em;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -232,10 +232,20 @@ button.bookmark > img {
   top: 0;
 }
 
-button.bookmark > img.bookmarked { /* except turns it into one big green circle */
-  /* need to change to black and white first!!! */
-  filter: contrast(10000%) invert(34%) sepia(78%) saturate(420%) hue-rotate(127deg) brightness(97%) contrast(95%);
+button.bookmark > svg {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
+
+.bookmark-circle.bookmarked {
+  fill: var(--highlight-dark);
+}
+.bookmark-cutout.bookmarked {
+  fill: white;
+}
+
+
 button.bookmark > span.bookmarked {
   color: var(--highlight-dark);
 }
@@ -714,24 +724,20 @@ label.dollar-sign {
   button.bookmark > span {
     display: none;
   }
-  button.bookmark > img {
-    width: 4rem;
-    height: auto;
-  }
   button.bookmark {
     border: transparent;
     border-radius: 1.8em;
     color: var(--text-light);
-    background-color:hsla(0, 0%, 48%, 0.15);
+    background-color: transparent;
     gap: 1em;
     position: relative;
-    padding: 1.6em;
+    padding: 1.75em; /* needed for positioning of svg */
     font-weight: 700;
     letter-spacing: 1px;
   }
   .button-wrapper > button.active {
     width: 70%;
-    padding: 1em 1em;
+    padding: 1.2em 1em;
   }
   h1 {
     margin-bottom: 1em;
@@ -748,8 +754,13 @@ label.dollar-sign {
     top: -8%;
     transform: translate(-50%, 8%);
   }
-  
+}
+@media only screen and (max-width: 340px) {
   .button-wrapper > button.active {
     font-size: 0.8em;
+  }
+  .button-wrapper > button.active {
+    padding: 1.5em 1em;
+    border-radius: 2.2em;
   }
 }
