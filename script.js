@@ -1,3 +1,5 @@
+const GOAL = 100_000;
+
 //change color, text of bookmark button
 const bookmarkButton = document.querySelector(".bookmark");
 
@@ -99,9 +101,46 @@ for (let i = 0; i < radioButtons.length; i++){
     });
   }
 }
-//need to add event listener only if disabled = false
 
-//need to remove selection from any previously selected element. add to clicked one
+const submitBamboo = document.getElementById("continue-bamboo");
+const submitBlack = document.getElementById("continue-black");
+
+const successModal = document.querySelector(".success-modal");
+
+submitBamboo.addEventListener("click", () => {
+  const pledge = document.getElementById("bamboo-pledge");
+  const pledgeAmt = parseFloat(pledge.value);
+  if (pledgeAmt >= 25){
+    //wipe and close selection modal
+    pledge.value = "25";
+    deselectItems();
+    selectionModal.style.display = "none";
+    //then open success
+    successModal.style.display = "block";
+    updateProgress(pledgeAmt);
+
+    //decrement count of bamboo
+  }
+});
+
+submitBlack.addEventListener("click", () => {
+  const pledge = document.getElementById("black-pledge");
+  const pledgeAmt = parseFloat(pledge.value);
+  if (pledgeAmt >= 75){
+    pledge.value = "75";
+    deselectItems();
+    selectionModal.style.display = "none";
+    successModal.style.display = "block";
+    updateProgress(pledgeAmt);
+
+    //decrement count of black
+  }
+});
+
+const closeSuccessModal = document.getElementById("close-success-modal");
+closeSuccessModal.addEventListener("click", () => {
+  successModal.style.display = "none";
+});
 
 function selectItem(value) {
   const productDiv = document.getElementById(`${value}`);
@@ -123,4 +162,33 @@ function deselectItems() {
       }
     }
   }
+}
+
+function updateProgress(newPledge) {
+  //update amount raised, total backers, width of progress span
+  const totalRaised = document.getElementById("amount-raised");
+  const backers = document.getElementById("num-backers");
+  const progressBar = document.getElementById("progress-bar")
+
+  let raised = totalRaised.innerText;
+  raised = raised.replaceAll(",", ""); //remove commas
+  raised = raised.replaceAll("$", ""); //remove $
+
+  let numBackers = backers.innerText;
+  numBackers = numBackers.replaceAll(",", ""); 
+
+  raised = parseFloat(raised);
+  raised += newPledge;
+
+  numBackers = parseFloat(numBackers);
+  numBackers += 1
+
+  progressBar.style.width = `${totalRaised/GOAL}%`;
+
+  numBackers = numBackers.toLocaleString("en-US");
+  raised = raised.toLocaleString("en-US");
+  raised = "$" + raised;
+
+  totalRaised.innerText = raised;
+  backers.innerText = numBackers;
 }
