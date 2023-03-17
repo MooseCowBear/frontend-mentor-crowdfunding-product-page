@@ -120,6 +120,13 @@ submitBamboo.addEventListener("click", () => {
     updateProgress(pledgeAmt);
 
     //decrement count of bamboo
+    const numbers = document.querySelectorAll(".number.bamboo");
+    for (let i = 0; i < numbers.length; i++){
+      let val = numbers[i].innerText;
+      val = parseFloat(val);
+      val -= 1;
+      numbers[i].innerText = `${val}`;
+    }
   }
 });
 
@@ -134,6 +141,13 @@ submitBlack.addEventListener("click", () => {
     updateProgress(pledgeAmt);
 
     //decrement count of black
+    const numbers = document.querySelectorAll(".number.black")
+    for (let i = 0; i < numbers.length; i++){
+      let val = numbers[i].innerText;
+      val = parseFloat(val);
+      val -= 1;
+      numbers[i].innerText = `${val}`;
+    }
   }
 });
 
