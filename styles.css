@@ -4,7 +4,7 @@
   --text-dark: hsl(0, 0%, 0%);
   --text-light: hsl(0, 0%, 48%);
 
-  --background-light: hsla(0, 0%, 48%, 0.15);
+  --background-light: hsla(0, 0%, 48%, 0.05); 
 }
 
 /* reset */
@@ -216,7 +216,7 @@ button.bookmark {
   border: transparent;
   border-radius: 1.8em;
   color: var(--text-light);
-  background-color:hsla(0, 0%, 48%, 0.15);
+  background-color: var(--background-light);
   gap: 1em;
   position: relative;
   padding: 1em 2em 1em 4em;
@@ -230,6 +230,14 @@ button.bookmark > img {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+button.bookmark > img.bookmarked { /* except turns it into one big green circle */
+  /* need to change to black and white first!!! */
+  filter: contrast(10000%) invert(34%) sepia(78%) saturate(420%) hue-rotate(127deg) brightness(97%) contrast(95%);
+}
+button.bookmark > span.bookmarked {
+  color: var(--highlight-dark);
 }
 
 button.active:hover, button.active:focus {
