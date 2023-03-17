@@ -43,3 +43,24 @@ window.addEventListener("click", (event) => {
     selectionModal.style.display = "none";
   }
 });
+
+//open mobile menu when hamburger is pressed
+const menuHamburger = document.querySelector(".hamburger");
+const menuClose = document.getElementById("mobile-menu-close");
+const mobileMenu = document.querySelector(".mobile-menu-modal");
+
+menuHamburger.addEventListener("click", () => {
+  menuHamburger.style.display = "none";
+  menuClose.style.display = "block";
+
+  mobileMenu.style.display = "block";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target == mobileMenu) {
+    menuHamburger.style.display = "block";
+    menuClose.style.display = "none";
+
+    mobileMenu.style.display = "none";
+  }
+});
