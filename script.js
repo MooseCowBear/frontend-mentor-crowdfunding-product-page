@@ -22,3 +22,24 @@ function toggleBookmarkText() {
   }
   bookmarkText.classList.toggle("bookmarked");
 }
+
+//open selection span when "back this project" button pressed
+const selectionModal = document.querySelector(".selection-modal");
+
+const backProjectBtn = document.getElementById("back-project");
+
+backProjectBtn.addEventListener("click", () => {
+  selectionModal.style.display = "block";
+});
+
+//close selection modal when click outside it or on close "x"
+const closeSelectionModal = document.getElementById("close-selection-modal");
+closeSelectionModal.addEventListener("click", () => {
+  selectionModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target == selectionModal) {
+    selectionModal.style.display = "none";
+  }
+});
