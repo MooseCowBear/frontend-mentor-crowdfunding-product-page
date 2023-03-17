@@ -28,6 +28,8 @@ const selectionModal = document.querySelector(".selection-modal");
 
 const backProjectBtn = document.getElementById("back-project");
 
+const radioButtons = document.querySelectorAll("input[type=radio]");
+
 backProjectBtn.addEventListener("click", () => {
   selectionModal.style.display = "block";
 });
@@ -36,11 +38,13 @@ backProjectBtn.addEventListener("click", () => {
 const closeSelectionModal = document.getElementById("close-selection-modal");
 closeSelectionModal.addEventListener("click", () => {
   selectionModal.style.display = "none";
+  deselectItems();
 });
 
 window.addEventListener("click", (event) => {
   if (event.target == selectionModal) {
     selectionModal.style.display = "none";
+    deselectItems();
   }
 });
 
@@ -70,25 +74,43 @@ const bamboo = document.getElementById("bamboo-select");
 const black = document.getElementById("black-select");
 
 bamboo.addEventListener("click", () => {
-  //need product div for item to add selected
-  const bambooPledgeDiv = document.getElementById("bamboo");
-  bambooPledgeDiv.classList.add("selected");
-  //need to check the radio button for it
+  selectItem("bamboo");
   const bambooRadio = document.querySelector("#bamboo input[type=radio]");
   bambooRadio.checked = true;
   //open the selection modal
   selectionModal.style.display = "block";
-  //make the footer visible
-  const pledgeAmount = document.getElementById("bamboo-footer");
-  pledgeAmount.style.display = "flex";
 });
 
 black.addEventListener("click", () => {
-  const blackPledgeDiv = document.getElementById("black");
-  blackPledgeDiv.classList.add("selected");
+  selectItem("black");
   const blackRadio = document.querySelector("#black input[type=radio]");
   blackRadio.checked = true;
+
   selectionModal.style.display = "block";
-  const pledgeAmount = document.getElementById("black-footer");
-  pledgeAmount.style.display = "flex";
 });
+
+//event listeners for radio buttons
+
+//need to add event listener only if disabled = false
+
+//need to remove selection from any previously selected element. add to clicked one
+
+function selectItem(value) {
+  const productDiv = document.getElementById(`${value}`);
+  productDiv.classList.add("selected");
+  const productFooter = document.getElementById(`${value}-footer`);
+  productFooter.style.display = "flex";
+}
+function deselectItems() {
+  for (let i = 0; i < radioButtons.length; i++){
+    if (!radioButtons[i].disabled)  {
+      radioButtons[i].checked = false;
+      if (radioButtons[i].id != "no-reward"){
+        const productDiv = document.getElementById(`${radioButtons[i].value}`);
+        productDiv.classList.remove("selected");
+        const productFooter = document.getElementById(`${radioButtons[i].value}-footer`);
+        productFooter.style.display = "none";
+      }
+    }
+  }
+}
