@@ -4,7 +4,6 @@ const GOAL = 100_000;
 const bookmarkButton = document.querySelector(".bookmark");
 
 bookmarkButton.addEventListener("click", () => {
-  console.log("bookmark button clicked");
   const bookmarkImage = document.querySelector(".bookmark-circle");
   const bookmarkImageCutout = document.querySelector(".bookmark-cutout");
 
@@ -103,7 +102,6 @@ for (let i = 0; i < radioButtons.length; i++){
   if (!radioButtons[i].disabled){
     radioButtons[i].addEventListener("click", () => {
       deselectItems(false);
-      console.log("selected", radioButtons[i].value);
       selectItem(radioButtons[i].value);
     });
   }
