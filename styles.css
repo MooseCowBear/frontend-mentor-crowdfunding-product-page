@@ -612,7 +612,7 @@ label.dollar-sign {
 }
 
 @media only screen and (max-width: 1000px){
-  .content-wrapper { 
+  .content-wrapper, .selection-modal-content { 
     width: 80%;
   }
   
