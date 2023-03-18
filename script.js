@@ -95,7 +95,7 @@ black.addEventListener("click", () => {
 for (let i = 0; i < radioButtons.length; i++){
   if (!radioButtons[i].disabled){
     radioButtons[i].addEventListener("click", () => {
-      deselectItems();
+      deselectItems(false);
       console.log("selected", radioButtons[i].value);
       selectItem(radioButtons[i].value);
     });
@@ -177,14 +177,17 @@ function selectItem(value) {
   productFooter.style.display = "flex";
   
 }
-function deselectItems() {
+function deselectItems(reset=true) {
   for (let i = 0; i < radioButtons.length; i++){
     if (!radioButtons[i].disabled)  {
-      radioButtons[i].checked = false;
+      
       const productDiv = document.getElementById(`${radioButtons[i].value}`);
       productDiv.classList.remove("selected");
       const productFooter = document.getElementById(`${radioButtons[i].value}-footer`);
       productFooter.style.display = "none";
+      if (reset) {
+        radioButtons[i].checked = false;
+      }
     }
   }
 }
