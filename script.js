@@ -62,6 +62,13 @@ menuHamburger.addEventListener("click", () => {
   mobileMenu.style.display = "block";
 });
 
+menuClose.addEventListener("click", () => {
+  menuHamburger.style.display = "block";
+  menuClose.style.display = "none";
+
+  mobileMenu.style.display = "none";
+});
+
 window.addEventListener("click", (event) => {
   if (event.target == mobileMenu) {
     menuHamburger.style.display = "block";
